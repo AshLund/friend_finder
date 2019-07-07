@@ -193,10 +193,8 @@
 
 <script type="text/javascript">
  
-
   $(".submit").on("click", function(event) {
     event.preventDefault();
-
   var userInput={
       name: $("#nameInput").val().trim(),
       photo: $("#photo").val().trim,
@@ -213,18 +211,13 @@
           $("#q10").val().trim(),
       ]
   };
-
   console.log(JSON.stringify(userInput));
-
     
     $.post("/api/friends", userInput,
       function(data) {
-
     
       });
-
   });
-
 </script>
 
 </body>
