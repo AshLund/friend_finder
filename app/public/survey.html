@@ -170,22 +170,26 @@
                                                                     </select>
                                                                   </div>
                         
-              <button type="submit" class="btn btn-primary submit">Submit</button>
+              <button type="submit" data-target="bestMatchModal" class="btn btn-primary submit">Submit</button>
             </form>
           </div>
         </div>
       </div>
     </div>
 
-<!-- 
-    <footer class="footer">
-      <div class="container">
-        <p>
-          <a href="/api/tables">API Table Link</a> |
-          <a href="/api/waitlist">API Wait List</a>
-      </div>
-    </footer> -->
+  </div>
 
+  <div id="bestMatchModal" class="modal" role="dialog">
+      <div class="modal-content">
+        <h3 class="modal-title"> Your Best Match!</h3>
+          </div>
+            <h2 id="best"> </h2>
+            <img id="bestPhoto" src="">
+        </div>
+        <div class="modal-footber">
+            <button type="button" class="btn btn-deault" data-dismiss="modal"> Close </button>
+        </div>
+      </div>
   </div>
 
 
@@ -213,10 +217,14 @@
   };
   console.log(JSON.stringify(userInput));
     
-    $.post("/api/friends", userInput,
-      function(data) {
-    
-      });
+var currentURL=window.location.origin;
+
+$.post(currentURL + "/api/friends", userInput, function(data) {
+    $("#best").text(data.name);
+    $("#bestphoto").attr("src", data.photo);
+});
+
+$(".modal").modal();
   });
 </script>
 
