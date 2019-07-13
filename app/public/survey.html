@@ -190,7 +190,7 @@
           </div>
           <div class="modal-body">
             <h2 id="best"> </h2>
-            <img id="bestPhoto" src="">
+            <img id="bestPhoto" width="200" src="">
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-deault" data-dismiss="modal"> Close </button>
@@ -228,7 +228,7 @@ var currentURL=window.location.origin;
 
 $.post("/api/friends", userInput, function(data) {
     $("#best").text(data.name);
-    $("#bestphoto").attr("src", data.photo);
+    $("#bestPhoto").attr("src", data.photo);
 
 $("#bestMatchModal").modal();
 });
